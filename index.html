@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#172554">
+<title>StepUp English — Learn through patterns</title>
+<style>
+:root{--navy:#172554;--blue:#3157d5;--sky:#eaf2ff;--mint:#dff8ee;--yellow:#fff2c7;--pink:#ffe5ed;--ink:#18223b;--muted:#68738b;--paper:#f7f8fc;--white:#fff;--line:#e6eaf2;--green:#16845d;--shadow:0 12px 32px #1c2b5012}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+button{font:inherit;cursor:pointer;border:0}.app{max-width:1040px;margin:auto;min-height:100vh;padding:18px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 2px 20px}.brand{display:flex;align-items:center;gap:10px;font-weight:850;color:var(--navy);font-size:19px}.logo{width:40px;height:40px;border-radius:14px;background:var(--blue);color:white;display:grid;place-items:center;font-size:21px}
+.streak{background:var(--yellow);padding:9px 13px;border-radius:30px;font-size:13px;font-weight:750}
+.hero{background:linear-gradient(120deg,#172554,#3157d5);color:white;border-radius:25px;padding:25px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.hero:after{content:"✦";position:absolute;font-size:150px;right:25px;top:-45px;color:#ffffff18}.eyebrow{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;opacity:.75;font-weight:800}.hero h1{font-size:clamp(25px,5vw,38px);line-height:1.1;margin:9px 0}.hero p{max-width:560px;color:#e2eaff;line-height:1.55;margin:0}
+.progress-wrap{margin-top:20px;max-width:420px}.progress-label{display:flex;justify-content:space-between;font-size:12px;color:#e2eaff;margin-bottom:7px}.progress{height:8px;background:#ffffff38;border-radius:10px;overflow:hidden}.progress span{display:block;height:100%;background:#8ef0c4;width:0%;transition:.3s}
+.layout{display:grid;grid-template-columns:285px 1fr;gap:18px;margin-top:18px}.panel,.lesson{background:white;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow)}
+.panel{padding:17px;height:max-content}.panel h3{margin:0 0 12px;font-size:15px}.lesson-list{display:grid;gap:8px}.lesson-tab{width:100%;display:flex;align-items:center;gap:11px;text-align:left;padding:12px;border-radius:15px;background:white;color:var(--ink);border:1px solid transparent}.lesson-tab:hover{background:#f5f7ff}.lesson-tab.active{background:var(--sky);border-color:#cbd9ff}.lesson-tab.locked{opacity:.48;cursor:not-allowed}.num{width:34px;height:34px;border-radius:12px;background:#f0f2f8;display:grid;place-items:center;font-weight:850;flex-shrink:0}.active .num{background:var(--blue);color:white}.lesson-tab small{display:block;color:var(--muted);font-size:11px;margin-top:3px}.lesson-tab strong{font-size:13px}.side-note{background:var(--mint);border-radius:15px;padding:13px;margin-top:16px;font-size:12px;line-height:1.5;color:#175d48}
+.lesson{padding:clamp(17px,4vw,28px);min-width:0}.lesson-top{display:flex;justify-content:space-between;gap:10px;align-items:center}.tag{background:var(--sky);color:#2947a7;border-radius:20px;padding:7px 11px;font-size:11px;font-weight:800}.lesson h2{font-size:clamp(23px,4vw,31px);margin:13px 0 6px;color:var(--navy)}.sub{color:var(--muted);line-height:1.5;margin:0 0 20px}
+.section{border-top:1px solid var(--line);padding-top:18px;margin-top:20px}.section h3{font-size:15px;margin:0 0 12px}.vocab-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.word{background:#f7f8fc;border:1px solid var(--line);padding:12px;border-radius:15px;text-align:left;display:flex;justify-content:space-between;gap:6px;align-items:center}.word b{display:block;font-size:15px}.word small{color:var(--muted);font-size:12px}.word em{font-style:normal;color:var(--blue);font-size:11px;font-weight:800}
+.pattern{background:#f4f7ff;border:1px solid #dfe7ff;border-radius:18px;padding:16px}.pattern-line{font-size:21px;font-weight:850;color:var(--navy);margin:4px 0}.pattern-bn{color:var(--muted);font-size:14px}.examples{display:grid;gap:8px;margin-top:12px}.example{background:white;border-radius:12px;padding:10px 12px;display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:14px}.example span{color:var(--muted)}.mini{background:#edf1ff;color:#2947a7;border-radius:10px;padding:6px 9px;font-size:12px;font-weight:800}
+.activity{background:#fff9e8;border:1px solid #f4e7bd;border-radius:18px;padding:16px}.question{font-weight:750;margin:0 0 12px}.choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.choice{background:white;border:1px solid #eadfbf;border-radius:12px;padding:11px;text-align:left;color:var(--ink)}.choice.correct{border-color:#36a77c;background:#e6fff4}.choice.wrong{border-color:#e07a8a;background:#fff0f2}.feedback{font-size:13px;min-height:20px;margin-top:10px;color:var(--muted)}
+.speakbox{background:#f5f0ff;border:1px solid #e6d9ff;border-radius:18px;padding:16px}.speakbox p{margin:0 0 8px}.bn-prompt{font-size:19px;font-weight:800;color:#5137a5}.speak-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.primary,.secondary{padding:11px 15px;border-radius:13px;font-weight:800}.primary{background:var(--blue);color:white}.secondary{background:#edf1ff;color:#2947a7}.primary:disabled{opacity:.5;cursor:not-allowed}
+.story{background:linear-gradient(145deg,#eaf5ff,#effcf6);border-radius:19px;padding:19px;line-height:1.9;font-size:16px}.story p{margin:0 0 10px}.story p:last-child{margin:0}.story-tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.bottom{display:flex;justify-content:space-between;gap:10px;margin-top:22px;align-items:center}.bottom small{color:var(--muted)}.complete{background:var(--mint);color:#17654b;padding:9px 12px;border-radius:12px;font-size:12px;font-weight:800}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#172554;color:white;padding:12px 18px;border-radius:30px;box-shadow:var(--shadow);font-size:13px;opacity:0;pointer-events:none;transition:.25s}.toast.show{opacity:1}
+footer{text-align:center;color:#8790a3;font-size:11px;padding:22px 0 8px}
+@media(max-width:720px){.layout{grid-template-columns:1fr}.panel{padding:14px}.lesson-list{grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}.lesson-tab{display:block;text-align:center;padding:8px 3px}.lesson-tab .num{margin:auto auto 5px;width:30px;height:30px}.lesson-tab strong{font-size:10px}.lesson-tab small{display:none}.side-note{display:none}.hero{padding:21px}.app{padding:12px}.vocab-grid{gap:7px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header><div class="brand"><div class="logo">✦</div> StepUp English</div><div class="streak">⚡ <span id="streak">0</span> lessons completed</div></header>
+<section class="hero">
+ <div class="eyebrow">Learn through patterns</div><h1>English starts making sense.</h1>
+ <p>Notice the pattern. Understand the meaning. Then make your own sentences. Little by little, English becomes yours.</p>
+ <div class="progress-wrap"><div class="progress-label"><span>Your learning journey</span><span id="progressText">0 / 5</span></div><div class="progress"><span id="progressBar"></span></div></div>
+</section>
+<div class="layout">
+ <aside class="panel"><h3>Your first 5 days</h3><div class="lesson-list" id="lessonList"></div><div class="side-note">💡 <b>Our method:</b> Don't just memorise a sentence. Notice what changes and what stays the same.</div></aside>
+ <main class="lesson" id="lessonContent" aria-live="polite"></main>
+</div>
+<footer>Made for curious learners · Beginner level · Your progress stays on this device</footer>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const lessons = [
+ {title:"Meet the pattern",kind:"Pattern lesson",goal:"Understand a simple English sentence: who does what.",words:[["eat","খাওয়া"],["rice","ভাত"],["drink","পান করা"],["water","পানি"],["watch","দেখা"],["TV","টিভি"]],pattern:"I + verb + object",bn:"আমি + কাজ + কী/কাকে",examples:[["I eat rice.","আমি ভাত খাই।"],["I drink water.","আমি পানি পান করি।"],["I watch TV.","আমি টিভি দেখি।"]],quiz:{q:"How do you say ‘আমি পানি পান করি’?",a:["I drink water.","I water drink.","I drinks water.","Drink I water."],correct:0,why:"English usually places the subject first: I + drink + water."},speak:"আমি ভাত খাই।"},
+ {title:"Change the action",kind:"Pattern lesson",goal:"Keep the sentence frame and change the verb.",words:[["read","পড়া"],["write","লেখা"],["cook","রান্না করা"],["make","তৈরি করা"],["book","বই"],["food","খাবার"]],pattern:"I + action verb + object",bn:"আমি + কাজ + বস্তু",examples:[["I read a book.","আমি একটি বই পড়ি।"],["I write a letter.","আমি একটি চিঠি লিখি।"],["I make food.","আমি খাবার তৈরি করি।"]],quiz:{q:"Choose the natural English sentence for ‘আমি একটি বই পড়ি।’",a:["I a book read.","I read a book.","Read I book.","I reading a book."],correct:1,why:"The pattern is subject + verb + object: I + read + a book."},speak:"আমি একটি বই পড়ি।"},
+ {title:"Say what you like",kind:"Pattern lesson",goal:"Use ‘I like…’ to talk about things you enjoy.",words:[["like","পছন্দ করা"],["music","সঙ্গীত"],["flowers","ফুল"],["books","বইগুলো"],["love","খুব ভালোবাসা"],["games","খেলাধুলা / গেম"]],pattern:"I like + noun",bn:"আমি + কোনো কিছু + পছন্দ করি",examples:[["I like music.","আমি গান পছন্দ করি।"],["I like flowers.","আমি ফুল পছন্দ করি।"],["I like books.","আমি বই পড়তে/বই পছন্দ করি।"]],quiz:{q:"Complete: I like _____ . (আমি ফুল পছন্দ করি।)",a:["flowers","flowering","like flowers","I"],correct:0,why:"After ‘I like’, put the thing you like: flowers."},speak:"আমি গান পছন্দ করি।"},
+ {title:"Talk about your day",kind:"Pattern lesson",goal:"Use ‘I go to…’ and ‘I study…’ in everyday sentences.",words:[["go","যাওয়া"],["school","স্কুল"],["study","পড়াশোনা করা"],["English","ইংরেজি"],["every day","প্রতিদিন"],["home","বাড়ি"]],pattern:"I go to + place / I study + subject",bn:"আমি + কোথায় যাই / আমি + কী পড়ি",examples:[["I go to school.","আমি স্কুলে যাই।"],["I study English.","আমি ইংরেজি পড়ি।"],["I go home.","আমি বাড়ি যাই।"]],quiz:{q:"Which sentence means ‘আমি ইংরেজি পড়ি’?",a:["I English study.","I study English.","Study English I.","I studies English."],correct:1,why:"For this sentence, use I + study + English."},speak:"আমি প্রতিদিন ইংরেজি পড়ি।"},
+ {title:"A little story!",kind:"Story day · Day 5",goal:"Understand a short story using the patterns you have learned.",words:[["morning","সকাল"],["hungry","ক্ষুধার্ত"],["delicious","সুস্বাদু"],["friend","বন্ধু"],["together","একসাথে"],["happy","খুশি"]],story:true,quiz:{q:"Why does Rina make food?",a:["She is hungry.","She is at school.","She watches TV.","She reads a book."],correct:0,why:"The story says Rina is hungry, so she makes food."},speak:"রিনা সকালে খাবার তৈরি করে।"}
+];
+let completed = JSON.parse(localStorage.getItem("stepup_done")||"[]");
+let current = Math.max(0, Math.min(4, completed.length ? Math.min(completed.length,4) : 0));
+let quizPassed = {};
+function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),1900)}
+function save(){localStorage.setItem("stepup_done",JSON.stringify(completed));renderNav();updateProgress()}
+function updateProgress(){document.getElementById("streak").textContent=completed.length;document.getElementById("progressText").textContent=completed.length+" / 5";document.getElementById("progressBar").style.width=(completed.length*20)+"%"}
+function renderNav(){
+ const nav=document.getElementById("lessonList");nav.innerHTML="";
+ lessons.forEach((l,i)=>{const unlocked=i===0||completed.includes(i-1)||completed.includes(i);const b=document.createElement("button");b.className="lesson-tab "+(i===current?"active":"")+(unlocked?"":" locked");b.disabled=!unlocked;b.innerHTML=`<span class="num">${completed.includes(i)?"✓":i===4?"✦":i+1}</span><strong>${i===4?"Story": "Day "+(i+1)}</strong><small>${l.title}</small>`;b.onclick=()=>{current=i;renderLesson()};nav.appendChild(b)});
+ updateProgress();
+}
+function speakText(text){if(!("speechSynthesis" in window)){toast("Audio playback isn't supported in this browser.");return}const u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=.88;speechSynthesis.cancel();speechSynthesis.speak(u)}
+function renderLesson(){
+ const l=lessons[current], done=completed.includes(current);
+ let html=`<div class="lesson-top"><span class="tag">${l.kind}</span><span class="complete">${done?"✓ Completed":"In progress"}</span></div><h2>${l.title}</h2><p class="sub">${l.goal}</p>`;
+ if(l.story){
+ html+=`<div class="story"><p><b>Rina's Morning</b></p><p>It is morning. Rina is hungry. She goes to the kitchen.</p><p>“I will make food,” she says. She makes rice and drinks water.</p><p>Her friend Mina comes to her home. Mina likes the food. “It is delicious!” she says.</p><p>They eat together. Rina is happy.</p></div><div class="story-tools"><button class="secondary" onclick="speakText('It is morning. Rina is hungry. She goes to the kitchen. I will make food, she says. She makes rice and drinks water. Her friend Mina comes to her home. Mina likes the food. It is delicious, she says. They eat together. Rina is happy.')">🔊 Listen to the story</button><button class="secondary" onclick="toast('Read it once more, slowly. You’ve got this!')">↻ Read again</button></div>`;
+ } else {
+ html+=`<div class="section"><h3>🧩 Meet today's words <span style="color:#8790a3;font-weight:400">(tap a word to hear it)</span></h3><div class="vocab-grid">${l.words.map(w=>`<button class="word" onclick="speakText('${w[0].replace(/'/g,"\\'")}')"><span><b>${w[0]}</b><small>${w[1]}</small></span><em>🔊</em></button>`).join("")}</div></div>
+ <div class="section"><h3>🔍 Notice the pattern</h3><div class="pattern"><div class="pattern-line">${l.pattern}</div><div class="pattern-bn">${l.bn}</div><div class="examples">${l.examples.map(e=>`<div class="example"><div><b>${e[0]}</b><br><span>${e[1]}</span></div><button class="mini" onclick="speakText('${e[0]}')">🔊</button></div>`).join("")}</div></div></div>`;
+ }
+ html+=`<div class="section"><h3>🎯 Quick check</h3><div class="activity"><p class="question">${l.quiz.q}</p><div class="choices">${l.quiz.a.map((a,i)=>`<button class="choice" onclick="answer(${i})">${a}</button>`).join("")}</div><div class="feedback" id="feedback"></div></div></div>
+ <div class="section"><h3>🗣️ Say it out loud</h3><div class="speakbox"><p>Try saying this in English:</p><div class="bn-prompt">${l.speak}</div><div class="speak-actions"><button class="primary" onclick="startSpeaking()">🎙️ Speak</button><button class="secondary" onclick="speakText('${l.story?"Rina makes food in the morning.":l.examples[0][0]}')">🔊 Hear an example</button></div><div class="feedback" id="speechFeedback">Your browser may ask for microphone permission. If voice input isn't supported, practise aloud and compare with the example.</div></div></div>
+ <div class="bottom"><small>${current===4?"Your first story — well done for reaching Day 5!":"One small step every day."}</small><button class="primary" id="finishBtn" ${done?"disabled":""} onclick="finishLesson()">${done?"Completed ✓":current===4?"Finish story":"Complete lesson →"}</button></div>`;
+ document.getElementById("lessonContent").innerHTML=html;renderNav();
+}
+function answer(i){
+ const l=lessons[current],fb=document.getElementById("feedback"),buttons=document.querySelectorAll(".choice");
+ buttons.forEach((b,n)=>{b.disabled=true;if(n===l.quiz.correct)b.classList.add("correct");else if(n===i)b.classList.add("wrong")});
+ if(i===l.quiz.correct){fb.textContent="Correct! "+l.quiz.why;fb.style.color="#16845d";quizPassed[current]=true;toast("Great observation! ✨")}
+ else{fb.textContent="Not quite. "+l.quiz.why;fb.style.color="#b14c5d"}
+}
+function finishLesson(){
+ if(!quizPassed[current]){toast("Try the quick check first.");return}
+ if(!completed.includes(current)){completed.push(current);completed.sort((a,b)=>a-b);save()}
+ if(current<4){current++;renderLesson();toast("Lesson unlocked! Keep going 🚀")}
+ else{renderLesson();toast("You completed your first 5-day journey! 🎉")}
+}
+function startSpeaking(){
+ const feedback=document.getElementById("speechFeedback");
+ const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+ if(!SR){feedback.textContent="Voice recognition isn't available in this browser. Say the sentence aloud, then tap ‘Hear an example’ to compare.";return}
+ const rec=new SR();rec.lang="en-US";rec.interimResults=false;rec.maxAlternatives=1;
+ feedback.textContent="Listening… say your English sentence now.";
+ rec.onresult=e=>{const heard=e.results[0][0].transcript;feedback.textContent='I heard: “'+heard+'”. Compare it with the lesson example. Speech recognition can mishear words, so this is practice—not a pronunciation score.'};
+ rec.onerror=()=>feedback.textContent="I couldn't hear that clearly. Check microphone permission and try again.";
+ rec.onend=()=>{};try{rec.start()}catch(e){feedback.textContent="Voice input is already active. Try again in a moment."}
+}
+renderNav();renderLesson();
+</script>
+</body>
+</html>
